@@ -5,10 +5,10 @@ It provides a clean and unified API for retrieving Surahs from any supported lan
 
 ## **✨ Features**
 
-* **`loadAll(language)`** — Load the full Surah dataset for a language.
-* **`searchById(language, id)`** — Retrieve a Surah using its unique ID (string-safe; supports `"1"`, `"3b"`, `"2c"`, etc.).
-* **`searchByName(language, keyword)`** — Find Surahs by name (e.g., “mankind”).
-* **`searchByPhrase(language, phrase)`** — Search Surah text for any phrase.
+* **`SurahKit.loadAll(language)`** — Load the full Surah dataset for a language.
+* **`SurahKit.searchById(language, id)`** — Retrieve a Surah using its unique ID (string-safe; supports `"1"`, `"3b"`, `"2c"`, etc.).
+* **`SurahKit.searchByName(language, keyword)`** — Find Surahs by name (e.g., “mankind”).
+* **`SurahKit.searchByPhrase(language, phrase)`** — Search Surah text for any phrase.
 * Works with **any language**, as long as a JSON file exists.
 * **Simple, predictable JSON structure**:
 * **Zero dependencies**, fully ES module compatible.
@@ -23,7 +23,7 @@ SurahKit is browser-first. You can load it via file path, CDN, or module bundler
 
 ```html
 <script type="module">
-  import { surahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
+  import { SurahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
 </script>
 ```
 
@@ -31,18 +31,18 @@ SurahKit is browser-first. You can load it via file path, CDN, or module bundler
 
 ## **🌐 Usage**
 
-## **surahKit.loadAll(language)**
+## **SurahKit.loadAll(language)**
 ```html
 <div id="mdkva-surahkit"></div>
 
 <script type="module">
 
-import { surahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
+import { SurahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
 
   async function loadAll() {
     try {
       // Load the full dataset for English
-      const allSurahs = await surahKit.loadAll("english");
+      const allSurahs = await SurahKit.loadAll("english");
 
       console.log("load:", allSurahs);
 
@@ -70,17 +70,17 @@ import { surahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.
 
 ---
 
-## **surahKit.searchById(language, id)**
+## **SurahKit.searchById(language, id)**
 ```html
 <div id="mdkva-surahkit"></div>
 
 <script type="module">
 
-import { surahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
+import { SurahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
 
   async function searchById() {
     try {
-      const surah = await surahKit.searchById("english", "36");
+      const surah = await SurahKit.searchById("english", "36");
 
       document.getElementById("mdkva-surahkit").innerHTML = `
         <h2>${surah.id}: ${surah.surah}</h2>
@@ -99,18 +99,18 @@ import { surahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.
 
 ---
 
-## **surahKit.searchByName(language, keyword)**
+## **SurahKit.searchByName(language, keyword)**
 ```html
 <div id="mdkva-surahkit"></div>
 
 <script type="module">
 
-import { surahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
+import { SurahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
 
   async function searchByName() {
     try {
       // Search for surahs containing "Mankind" in the name
-      const results = await surahKit.searchByName("english", "mankind");
+      const results = await SurahKit.searchByName("english", "mankind");
 
       console.log("searchByName:", results);
 
@@ -142,18 +142,18 @@ import { surahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.
 
 ---
 
-## **surahKit.searchByPhrase(language, phrase)**
+## **SurahKit.searchByPhrase(language, phrase)**
 ```html
 <div id="mdkva-surahkit"></div>
 
 <script type="module">
 
-import { surahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
+import { SurahKit } from "https://cdn.jsdelivr.net/npm/@mdkva/surahkit/surahkit.js";
 
   async function searchByPhrase() {
     try {
       // Search for the phrase "We have granted you a clear triumph" in surah text
-      const results = await surahKit.searchByPhrase("english", "We have granted you a clear triumph");
+      const results = await SurahKit.searchByPhrase("english", "We have granted you a clear triumph");
 
       console.log("search:", results);
 
@@ -196,7 +196,6 @@ This project is open source and contributions are welcome!
 * **npm Package:** [https://www.npmjs.com/package/@mdkva/surahkit](https://www.npmjs.com/package/@mdkva/surahkit)
 * **Company Website:** [mdkva.com](https://mdkva.com/)
 * **Contact:** [contact@mdkva.com](mailto:contact@mdkva.com)
-* **Author:** [github.com/MDKDanyalk](https://github.com/MDKDanyalk)
 
 ---
 
